@@ -1,0 +1,15 @@
+table{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    width: max-content;
+    height: max-content;
+}
+
+
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
