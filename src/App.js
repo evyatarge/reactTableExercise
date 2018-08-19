@@ -33,7 +33,7 @@ class App extends Component {
     getData(sort){
 
         var order = sort ? sort : '_order=asc';
-        const URL = 'http://localhost:3000/employees?_sort=first_name&'+order;
+        const URL = 'http://localhost:3000/employees?_sort=id&'+order;
 
         fetch(URL)
             .then(response => {
@@ -61,7 +61,7 @@ class App extends Component {
         <p className="App-intro">
         </p>
 
-          {this.state.tableData.length > 0 ? <Table data={this.state.tableData}/> : null getData=this.getData }
+          {this.state.tableData.length > 0 ? <Table data={this.state.tableData}/> : null }
 
       </div>
     );

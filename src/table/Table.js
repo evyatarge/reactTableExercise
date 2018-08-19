@@ -4,20 +4,25 @@ import Row from './Row.js';
 
 class Table extends Component{
 
-    sort(){
-
+    constructor(props){
+        super(props);
+        this.state = {
+            rows: [],
+            hover: false
+        }
     }
 
-    render(){
+    componentDidMount(){
         const data = this.props.data;
-        const rows = [];
+        const rows = this.state.rows;
 
         for(let row of data){
             rows.push(
                 <Row
+                    key={row.id}
                     id={row.id}
-                    first_name= {row.first_name}
-                    last_name= {row.last_name}
+                    firstName= {row.first_name}
+                    lastName= {row.last_name}
                     email= {row.email}
                     avatar= {row.avatar}
                     company= {row.company}
@@ -26,27 +31,47 @@ class Table extends Component{
                 />
             );
         }
+        this.setState({rows:rows});
+    }
+
+    sort(){
+        this.setState({rows:(this.state.rows.reverse())});
+    }
+
+    getPointerStyle() {
+        var pointerStyle;
+        if (this.state.hover) {
+            pointerStyle = {cursor: 'pointer'}
+        } else {
+            pointerStyle = {cursor: 'default'}
+        }
+        return pointerStyle;
+    }
+
+    render(){
 
         return(
+
           <table>
               <thead>
                   <tr>
-                      <th>id</th>
-                      <th onClick={this.sort(this.props.getData)}>first_name</th>
-                      <th>last_name</th>
-                      <th>email</th>
-                      <th>avatar</th>
-                      <th>company</th>
-                      <th>adress</th>
-                      <th>phone</th>
+                      <th onClick={()=>this.sort()}>ID</th>
+                      <th>First name</th>
+                      <th>Last name</th>
+                      <th>Email</th>
+                      <th>Avatar</th>
+                      <th>Company</th>
+                      <th>Adress</th>
+                      <th>Phone</th>
                   </tr>
               </thead>
               <tbody>
-              {rows}
+              {this.state.rows}
               </tbody>
           </table>
         );
     }
+
 }
 
 export default Table;

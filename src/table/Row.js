@@ -4,42 +4,29 @@ import './row.css';
 class Row extends Component{
 
     constructor(props){
-        super();
+        super(props);
         this.state = {
-            avatar: null
+            avatar: props.avatar
         };
     }
 
-    getAvatar(avatarUrl){
-        return fetch(avatarUrl)
-            .then(result=> {
-                if (result.ok) {
-                    return result
-                }
-            });
-    }
-
-    componentDidMount(){
-        this.state.avatar = this.getAvatar(this.props.avatar);
+    getAvatarBackround() {
+        return {
+            backgroundImage: `url(${this.state.avatar})`,
+            width:150,
+            height:150
+        }
     }
 
     render(){
 
-        const url = this.state.avatar;
-        var styles = {
-            backgroundImage: `url: (${url})`,
-            width:150,
-            height:150
-        }
-
-
         return(
             <tr>
-                <td>{this.props.id}</td>
-                <td>{this.props.first_name}</td>
-                <td>{this.props.last_name}</td>
+                <td style={{fontWeight: "bold", width:"50px"}}>{this.props.id}</td>
+                <td>{this.props.firstName}</td>
+                <td>{this.props.lastName}</td>
                 <td>{this.props.email}</td>
-                <td style={styles}>
+                <td style={this.getAvatarBackround()}>
 
                 </td>
                 <td>{this.props.company}</td>
@@ -48,6 +35,7 @@ class Row extends Component{
             </tr>
         );
     }
+
 }
 
 export default Row;
