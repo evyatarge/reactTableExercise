@@ -2,14 +2,25 @@ table{
     text-align: center;
     margin: auto;
     border-collapse: collapse;
+    padding: 30px;
 }
 
-table, th, td {
+table, td {
     border: 2px solid black;
     width: max-content;
     height: max-content;
 }
 
+th{
+    background-color: #222222;
+    color: #f2f2f2;
+    font-size: larger;
+    margin: 3px;
+    border: 2px solid gainsboro;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 
-.table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
