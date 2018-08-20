@@ -3,24 +3,12 @@ import './App.css';
 import Table from './table/Table.js';
 
 
-// const jsonServer = require('json-server');
-// const server = jsonServer.create();
-// const router = jsonServer.router('db.json');
-// const middlewares = jsonServer.defaults();
-
-//         // Set default middlewares (logger, static, cors and no-cache)
-//         server.use(middlewares);
-//
-// // Add custom routes before JSON Server router
-//         server.get('/employees?_sort=id', (req, res) => {
-//             res.jsonp(req.query);
-//         });
-
+const URL = 'http://localhost:3000/employees?_sort=id&_order=asc';
 
 class App extends Component {
 
     constructor(props){
-        super();
+        super(props);
         this.state = {
             tableData: ''
         };
@@ -30,11 +18,7 @@ class App extends Component {
         this.getData();
     }
 
-    getData(sort){
-
-        var order = sort ? sort : '_order=asc';
-        const URL = 'http://localhost:3000/employees?_sort=id&'+order;
-
+    getData(){
         fetch(URL)
             .then(response => {
                 if(response.ok){
@@ -52,11 +36,10 @@ class App extends Component {
 
 
   render() {
-        this.getData();
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to My App</h1>
+          <h1 className="App-title">Welcome to Employees App</h1>
         </header>
         <p className="App-intro">
         </p>
