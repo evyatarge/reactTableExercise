@@ -8,12 +8,10 @@ class Table extends Component{
         super(props);
         this.state = {
             rows: [],
-            // hover: false
         }
     }
 
     componentDidMount(){
-        // const data = this.props.data;
         const rows = [];
 
         for(let row of this.props.data){
@@ -37,16 +35,6 @@ class Table extends Component{
     sort(){
         this.setState({rows:(this.state.rows.reverse())});
     }
-
-    // getPointerStyle() {
-    //     let pointerStyle;
-    //     if (this.state.hover) {
-    //         pointerStyle = {cursor: 'pointer'}
-    //     } else {
-    //         pointerStyle = {cursor: 'default'}
-    //     }
-    //     return pointerStyle;
-    // }
 
     render(){
 

@@ -6,7 +6,7 @@ export const SAVE_DATA = 'SAVE_DATA';
 export const Pages = {
     MAIN_PAGE: 0,
     ABOUT_PAGE: 1
-}
+};
 
 //creators
 export function moveToPage(index) {
