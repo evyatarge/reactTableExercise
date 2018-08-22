@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Table from './table/Table.js';
+import Table from './table/Table';
+import About from './about/About';
 
 
 const URL = 'http://localhost:3000/employees?_sort=id&_order=asc';
