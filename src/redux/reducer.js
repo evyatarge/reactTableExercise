@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import {MOVE_PAGE, Pages, SAVE_DATA} from './actions';
 
-// const initialState = {
-//     page: Pages.MAIN_PAGE,
-//     data: []
-// };
+const initialState = {
+    page: Pages.MAIN_PAGE,
+    data: []
+};
 
 function myApp(state=initialState, action) {
     return {

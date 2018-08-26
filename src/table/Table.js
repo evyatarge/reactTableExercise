@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './table.css';
 import Row from './Row.js';
+import {saveData} from "../redux/actions";
 
 class Table extends Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            rows: [],
-        }
+        // this.state = {
+        //     rows: [],
+        // }
     }
 
     componentDidMount(){
         const rows = [];
+        const data = this.props.data? this.props.data : [];
 
-        for(let row of this.props.data){
+        for(let row of data){
             rows.push(
                 <Row
-                    key={row.id}
-                    id={row.id}
+                    key= {row.id}
+                    id= {row.id}
                     firstName= {row.first_name}
                     lastName= {row.last_name}
                     email= {row.email}
@@ -29,11 +33,20 @@ class Table extends Component{
                 />
             );
         }
-        this.setState({rows:rows});
+        this.props.dispatch(saveData(rows));
+        // this.setState({rows:rows});
     }
 
     sort(){
-        this.setState({rows:(this.state.rows.reverse())});
+        const newRows = this.props.rows.reverse();
+        this.props.dispatch(saveData(newRows));
+        // this.setState({rows:(this.props.rows.reverse())});
+    }
+
+    mapStateToProps = state => {
+        return {
+            rows: state.data//this.getData()
+        }
     }
 
     render(){
@@ -54,7 +67,7 @@ class Table extends Component{
                   </tr>
               </thead>
               <tbody>
-              {this.state.rows}
+              {this.props.rows}
               </tbody>
           </table>
         );
@@ -62,4 +75,19 @@ class Table extends Component{
 
 }
 
-export default Table;
+// Table.propTypes = {
+//     rows: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             id: PropTypes.number.isRequired,
+//             firstName: PropTypes.string.isRequired,
+//             lastName: PropTypes.string.isRequired,
+//             email: PropTypes.string.isRequired,
+//             avatar: PropTypes.string.isRequired,
+//             company: PropTypes.string.isRequired,
+//             adress: PropTypes.string.isRequired,
+//             phone: PropTypes.string.isRequired
+//         }).isRequired
+//     ).isRequired,
+// }
+
+export default connect()(Table);
