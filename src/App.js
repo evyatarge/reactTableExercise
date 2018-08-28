@@ -6,6 +6,9 @@ import About from './about/About';
 
 const URL = 'http://localhost:3000/employees?_sort=id&_order=asc';
 
+const ABOUT = "about";
+const TABLE = "table";
+
 class App extends Component {
 
     constructor(props){
@@ -35,17 +38,43 @@ class App extends Component {
             );
     }
 
+    moveToPage(page){
+        let aboutDisplay = document.getElementById(ABOUT) ? document.getElementById(ABOUT).style.display : undefined;
+        let tableDisplay = document.getElementById(TABLE) ? document.getElementById(TABLE).style.display : undefined;
+        if(page === ABOUT){
+            if(aboutDisplay === "none"){
+                aboutDisplay.s = "block";
+                tableDisplay = "none"
+            }
+        }
+        else if(page === TABLE){
+            tableDisplay = "block";
+            aboutDisplay = "none";
+        }
+    }
 
   render() {
-    return (
+
+      return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to Employees App</h1>
+          <h1 className="App-title">Employees Table</h1>
+            <div className="App-nav">
+                <span className="App-nav-button" onClick={this.moveToPage(ABOUT)}>About</span>
+                <span className="App-nav-button">Table</span>
+            </div>
         </header>
         <p className="App-intro">
         </p>
 
-          {this.state.tableData.length > 0 ? <Table data={this.state.tableData}/> : null }
+          <div id={TABLE}>
+            {this.state.tableData.length > 0 ? <Table data={this.state.tableData}/> : null }
+          </div>
+
+          <div id={ABOUT}>
+              {<About/>}
+          </div>
+
 
       </div>
     );

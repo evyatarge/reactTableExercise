@@ -16,3 +16,22 @@
 .App-intro {
   font-size: large;
 }
+
+.App-nav {
+    font-size: medium;
+    text-align: left;
+}
+.App-nav-button {
+    padding: 2ex;
+}
+.App-nav-button:hover {
+    cursor: pointer;
+}
+
+
+#table{
+
+}
+#about{
+    display: none;
+}
