@@ -13,8 +13,8 @@ class Row extends Component{
     getAvatarBackround() {
         return {
             backgroundImage: `url(${this.state.avatar})`,
-            width:150,
-            height:150
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat"
         }
     }
 
@@ -22,7 +22,7 @@ class Row extends Component{
 
         return(
             <tr>
-                <td style={{fontWeight: "bold", width:"50px"}}>{this.props.id}</td>
+                <td style={{fontWeight: "bold"}}>{this.props.id}</td>
                 <td>{this.props.firstName}</td>
                 <td>{this.props.lastName}</td>
                 <td>{this.props.email}</td>
