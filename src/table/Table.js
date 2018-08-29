@@ -8,13 +8,14 @@ class Table extends Component{
         super(props);
         this.state = {
             rows: [],
+            data: props.data || null,
         }
     }
 
     componentDidMount(){
         const rows = [];
 
-        for(let row of this.props.data){
+        for(let row of this.props.data ){
             rows.push(
                 <Row
                     key={row.id}
@@ -43,7 +44,7 @@ class Table extends Component{
           <table>
               <thead>
                   <tr>
-                      <th><span onClick={()=>this.sort()} className="sort"></span>ID</th>
+                      <th onClick={()=>this.sort()}><span className="sort"/>ID</th>
                       <th>First name</th>
                       <th>Last name</th>
                       <th>Email</th>

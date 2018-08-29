@@ -1,0 +1,27 @@
+.page-nav{
+    /*float: left;*/
+    float: left;
+    margin:2px;
+    padding: 2px;
+    /*color: #dacbd4;*/
+    /*background-color: #dedede;*/
+    border-radius: 5px 5px 0 0;
+    width: 4%;
+    font-weight: bold;
+    font-family: Alef, sans-serif;
+    font-size: large;
+    background-color: white;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+    width: max-content;
+}
+.link:hover{
+    color: #a8a8a8;
+}
+
+/*.header-nav{*/
+    /*background-color: white;*/
+/*}*/

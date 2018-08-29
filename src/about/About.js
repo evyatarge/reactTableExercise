@@ -1,20 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class About extends Component{
-
-    render(){
-
-        return(
-
-            <div>
-                About My-App
-                <p>
-                    this is my-app to present table data from mock DB using <a href={'https://github.com/typicode/json-server'}>json-server</a>
-                </p>
-                <p>Move to the main page to view the data</p>
-            </div>
-        );
-    }
-}
+const About = () => (
+        <div>
+            <p>About My-App</p>
+            <p>this is an app to present table data from mock DB using <a href={'https://github.com/typicode/json-server'}>json-server</a></p>
+            <p>Move to the 'Table' tab to view the table data</p>
+        </div>
+);
 
 export default About;

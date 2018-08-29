@@ -3,12 +3,14 @@ table{
     margin: auto;
     border-collapse: collapse;
     padding: 30px;
+
+    border: 2px solid black;
 }
 
-table, td {
+td {
     border: 2px solid black;
-    width: max-content;
-    height: max-content;
+    width: 10ex;
+    height: 10ex;
 }
 
 th{
@@ -18,11 +20,6 @@ th{
     border: 2px solid gainsboro;
 
     height: 5ex;
-}
-
-td {
-    width: 10ex;
-    height: 10ex;
 }
 
 span.sort {
