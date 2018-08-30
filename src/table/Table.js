@@ -15,11 +15,11 @@ class Table extends Component{
     componentDidMount(){
         const rows = [];
 
-        for(let row of this.props.data ){
+        for(let row of this.props.data){
             rows.push(
                 <Row
-                    key={row.id}
-                    id={row.id}
+                    key= {row.id}
+                    id= {row.id}
                     firstName= {row.first_name}
                     lastName= {row.last_name}
                     email= {row.email}
@@ -35,6 +35,12 @@ class Table extends Component{
 
     sort(){
         this.setState({rows:(this.state.rows.reverse())});
+    }
+
+    mapStateToProps = state => {
+        return {
+            rows: this.state.data
+        }
     }
 
     render(){
