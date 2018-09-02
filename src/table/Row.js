@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './row.css';
-
 
 class Row extends Component{
 
