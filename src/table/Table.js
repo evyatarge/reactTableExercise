@@ -7,8 +7,7 @@ class Table extends Component{
     constructor(props){
         super(props);
         this.state = {
-            rows: [],
-            data: props.data || null,
+            rows: []
         }
     }
 
@@ -35,12 +34,6 @@ class Table extends Component{
 
     sort(){
         this.setState({rows:(this.state.rows.reverse())});
-    }
-
-    mapStateToProps = state => {
-        return {
-            rows: this.state.data
-        }
     }
 
     render(){

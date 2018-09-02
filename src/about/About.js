@@ -5,6 +5,7 @@ const About = () => (
             <p>About My-App</p>
             <p>this is an app to present table data from mock DB using <a href={'https://github.com/typicode/json-server'}>json-server</a></p>
             <p>Move to the 'Table' tab to view the table data</p>
+            <p>you can sort the table by ID</p>
         </div>
 );
 

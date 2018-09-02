@@ -1,45 +1,39 @@
 import React from 'react';
 import Table from './Table';
 
-const URL = 'http://localhost:3000/employees?_sort=id&_order=asc';
+import { connect } from 'react-redux';
+import { fetchData } from '../redux/asyncActions';
 
 class TableWrapper extends React.Component{
 
-
-    constructor(props){
-        super(props);
-        this.state = {
-            tableData: ''
-        };
-    }
-
     componentDidMount(){
-        this.getData();
+        if(this.props.items.length === 0){
+            this.props.dispatch(fetchData());
+        }
     }
-
-    getData(){
-        fetch(URL)
-            .then(response => {
-                if(response.ok){
-                    return response.json();
-                }
-                else{
-                    throw new Error('Error fetching data');
-                }
-            })
-            .then(data =>{
-                    this.setState({tableData: data});
-                }
-            );
-    }
-
 
     render() {
+        const { error, loading, items } = this.props;
+
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
+
+        if (loading) {
+            return <div>Loading...</div>;
+        }
         return (
             <div className={'table-wrapper'}>
-                {this.state.tableData.length > 0 ? <Table data={this.state.tableData}/> : null }
+               <Table data={items}/>
             </div>
         );
     }
 }
-export default TableWrapper;
+
+const mapStateToProps = state => ({
+    items: state.items,
+    loading: state.loading,
+    error: state.error
+});
+
+export default connect(mapStateToProps)(TableWrapper);

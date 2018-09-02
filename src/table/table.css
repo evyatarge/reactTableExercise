@@ -28,8 +28,8 @@ span.sort {
     background-color: white;
     background-repeat: no-repeat;
     background-size: contain;
-    -webkit-mask:  url(sort.svg) no-repeat 50% 50%;
-    mask: url(sort.svg) no-repeat 50% 50%;
+    -webkit-mask:  url(../resources/sort.svg) no-repeat 50% 50%;
+    mask: url(../resources/sort.svg) no-repeat 50% 50%;
 
     width:calc(100%);
 }
