@@ -1,4 +1,4 @@
-This is a simple SPA to present table data from mock DB using [json-server](https://github.com/typicode/json-server)
+This is a simple React-Redux SPA to present data table from mock DB using [json-server](https://github.com/typicode/json-server)
 
 To run the app:
  1. npm install
